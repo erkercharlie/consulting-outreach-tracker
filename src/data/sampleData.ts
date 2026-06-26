@@ -1,4 +1,4 @@
-import type { CRMData, Firm } from '../types';
+import type { CRMData, Firm, Contact, Interaction } from '../types';
 
 const now = '2026-06-26';
 
@@ -16,7 +16,7 @@ const firms: Firm[] = [
   { id: 'grant-thornton', firmName: 'Grant Thornton', shortName: 'Grant Thornton', firmType: 'Mid-Market Consulting', practiceFocus: 'Operations Consulting', targetRole: 'Advisory Associate', applicationStage: 'Not Started', priority: 'Low', applicationOpenDate: '', applicationDeadline: '', applicationLink: 'https://www.grantthornton.com/careers', locationPreference: '', notes: 'No single universal public deadline found. Confirm advisory associate posting details through Grant Thornton careers/campus recruiting.', createdAt: now, updatedAt: now }
 ];
 
-const contacts = [
+const contacts: Contact[] = [
   { id: 'contact-kate-hogan', firmId: 'accenture', name: 'Kate Hogan', role: 'COO', email: '', linkedInUrl: '', source: 'Other', relationshipStrength: 3, dateFirstContacted: '2026-07-06', outreachMethod: 'Other', responseStatus: 'Meeting Scheduled', dateOfResponse: '', notes: '', nextAction: 'Networking call with Kate Hogan', nextActionDate: '2026-07-06', createdAt: now, updatedAt: now },
   { id: 'contact-jim-garvey', firmId: 'accenture', name: 'Jim Garvey', role: 'Associate Recruiter', email: '', linkedInUrl: '', source: 'Other', relationshipStrength: 3, dateFirstContacted: '2026-07-02', outreachMethod: 'Other', responseStatus: 'Meeting Scheduled', dateOfResponse: '', notes: '', nextAction: 'Networking call with Jim Garvey', nextActionDate: '2026-07-02', createdAt: now, updatedAt: now },
   { id: 'contact-john-zecy', firmId: 'bcg', name: 'John Zecy', role: 'Project Leader', email: '', linkedInUrl: '', source: 'Other', relationshipStrength: 3, dateFirstContacted: '2026-06-10', outreachMethod: 'Other', responseStatus: 'Met', dateOfResponse: '2026-06-10', notes: '', nextAction: '', nextActionDate: '', createdAt: now, updatedAt: now },
@@ -37,7 +37,7 @@ const contacts = [
   { id: 'contact-nick-redmond', firmId: 'grant-thornton', name: 'Nick Redmond', role: 'Manager, Tech Strategy', email: '', linkedInUrl: '', source: 'Other', relationshipStrength: 3, dateFirstContacted: '', outreachMethod: 'Other', responseStatus: 'Not Yet Reached Out', dateOfResponse: '', notes: '', nextAction: '', nextActionDate: '', createdAt: now, updatedAt: now },
 ];
 
-const interactions = contacts
+const interactions: Interaction[] = contacts
   .filter(contact => contact.dateFirstContacted)
   .map(contact => ({
     id: 'interaction-' + contact.id.replace('contact-', ''),

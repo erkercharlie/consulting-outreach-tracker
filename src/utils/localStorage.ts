@@ -21,7 +21,7 @@ const mergeSeedContacts = (data: CRMData): CRMData => {
     interactions: [...data.interactions, ...sampleData.interactions.filter(interaction => !interactionIds.has(interaction.id))],
   };
 };
-const normalize = (data: CRMData): CRMData => mergeSeedContacts({ ...data, firms: data.firms.map(firm => ({ applicationOpenDate: '', ...firm })) });
+const normalize = (data: CRMData): CRMData => mergeSeedContacts({ ...data, firms: data.firms.map(firm => ({ ...firm, applicationOpenDate: firm.applicationOpenDate || '' })) });
 export function loadData(): CRMData { try { const raw = localStorage.getItem(KEY); return raw ? normalize(JSON.parse(raw) as CRMData) : normalize(sampleData); } catch { return normalize(sampleData); } }
 export function saveData(data: CRMData) { localStorage.setItem(KEY, JSON.stringify(data)); }
 export function resetData(): CRMData { const data = normalize(sampleData); saveData(data); return data; }
