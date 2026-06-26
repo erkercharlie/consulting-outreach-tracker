@@ -43,7 +43,7 @@ const interactions: Interaction[] = contacts
     id: 'interaction-' + contact.id.replace('contact-', ''),
     firmId: contact.firmId,
     contactId: contact.id,
-    interactionType: contact.responseStatus === 'Meeting Scheduled' ? 'Coffee Chat' : 'Coffee Chat',
+    interactionType: 'Coffee Chat',
     interactionDate: contact.dateFirstContacted,
     summary: contact.responseStatus === 'Meeting Scheduled' ? 'Scheduled networking call' : 'Networking meeting',
     meetingNotes: '',
